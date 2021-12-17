@@ -21,18 +21,18 @@ class Students(db.Model):
     age = db.Column(db.Integer(), nullable = True)
     email = db.Column(db.String(30), nullable = False)
     about = db.Column(db.Text, nullable = True)
-    course = db.Column(db.Integer(), db.ForeignKey('course.id'), nullable = False)
+    # course = db.Column(db.Integer(), db.ForeignKey('course.id'), nullable = True)
 
     def __repr__(self):
         return self.name
 
-    def __init__(self, name, surname, age, email, about, course):
+    def __init__(self, name, surname, age, email, about):
         self.name = name
         self.surname = surname
         self.age = age
         self.email = email
         self.about = about
-        self.course = course
+        # self.course = course
 
     def save(self):
         db.session.add(self)

@@ -8,4 +8,4 @@ class RegisterForm(FlaskForm):
     age = IntegerField(label = 'Age', validators=[DataRequired()])
     email = StringField(label = 'Email', validators=[DataRequired(), Email()])
     about = TextAreaField(label = 'About')
-    course = SelectField(label = 'Course', validators=[DataRequired()])
+    # course = SelectField(label = 'Course', validators=[DataRequired()])

@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+
+{% from "_formhelpers.html" import render_field %}
+
 {% block title %}
 Register html
 {% endblock %}
@@ -146,33 +149,18 @@ Register html
             <i class="fas fa-pencil-alt"></i> 
             <h2>Register here</h2>
           </div>
-          <div class="info">
-            {{form.csrf_token}}
+          
+              {{form.csrf_token}}
+              
+              {{render_field(form.name)}}
+              {{render_field(form.surname)}}
+              {{render_field(form.age)}}
+              {{render_field(form.email)}}
+              {{render_field(form.about)}}
+              {{render_field(form.course)}}
 
-            {{form.name.label}}
-            {{form.name(class = "fname")}}
-  
-            {{form.surname.label}}
-            {{form.surname}}
-  
-            {{form.age.label}}
-            {{form.age}}
-
-            {{form.email.label}}
-            {{form.email}}
-
-            {{form.about.label}}
-            {{form.about}}
-
-            {{ form.course }}
-            <!-- <select>
-              {% for course_title in course_titles %}
-                <option>{{course_title.name}}</option>
-              {% endfor %}
-            </select> -->
-
-            <button type="submit">APPLY</button>
-          </div>
+          <button type="submit">APPLY</button>
+          
         </form>
     </div>
 {% endblock %}
