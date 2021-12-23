@@ -1,3 +1,4 @@
+from typing import DefaultDict
 from extensions import db, login_manager
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -6,6 +7,38 @@ from werkzeug.security import generate_password_hash, check_password_hash
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
+
+class Book(db.Model):
+    id = db.Column(db.Integer(), primary_key = True)
+    title = db.Column(db.String(30), nullable = False)
+    author = db.Column(db.String(30))
+    price = db.Column(db.Numeric(5,2), default = 0.00)
+    description = db.Column(db.Text(), nullable = False)
+    image_url = db.Column(db.String(255))
+    stock = db.Column(db.Integer(), default = 0)
+    genre = db.Column(db.String(30), nullable = False)
+    language = db.Column(db.String(30), nullable = False)
+    publisher = db.Column(db.String(30))
+
+    def __repr__(self):
+        return self.title
+
+    def __init__(self, id, title, author, price, description, image_url, stock, genre, language, publisher):
+        self.id = id
+        self.title = title
+        self.author = author
+        self.price = price
+        self.description = description
+        self.image_url = image_url
+        self.stock = stock
+        self.genre = genre
+        self.language = language
+        self.publisher = publisher
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer(), primary_key = True)
