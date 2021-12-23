@@ -3,39 +3,36 @@
 {% from "_formhelpers.html" import render_field %}
 
 {% block title %}
-Register html
+Login html
 {% endblock %}
 
 {% block links %}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/register_page.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login_page.css') }}">
 {% endblock %}
 
 {% block content %}
     <div class="main-block">
         <div class="left-part">
         </div>
-        <form id="registerform" action="" method="POST">
+        <form action="" method="POST">
           <div class="title">
             <i class="fas fa-pencil-alt"></i> 
-            <h2>Register here</h2>
+            <h2>Login here</h2>
           </div>
           
               {{form.csrf_token}}
               
-              {{render_field(form.first_name)}}
-              {{render_field(form.last_name)}}
               {{render_field(form.username)}}
-              {{render_field(form.email)}}
               {{render_field(form.password)}}
 
-          <button type="submit">SIGN UP</button>
-          <div>
-            <button><a href="{{ url_for('login') }}">SIGN IN</a></button>
-          </div>
+              <button type="submit">SIGN IN</button>
+              <div>
+                <button><a href="{{ url_for('register') }}">SIGN UP</a></button>
+              </div>
+
           
         </form>
-
     </div>
 {% endblock %}

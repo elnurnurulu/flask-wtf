@@ -1,0 +1,34 @@
+#shopping-card {
+  width: 250px;
+}
+
+.gettingRed {
+  color: red;
+  border: 10px, solid, red;
+}
+
+.gettingBlue {
+  color: blue;
+}
+
+#icon-like:hover {
+  color: blue;
+}
+
+#icon-heart:hover {
+  color: red;
+}
+
+.heartandlikebutton {
+  font-size: 23px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.col-2 {
+  padding: 0px;
+}
+
+
+.slider img {
+  width: 90%;
+}
